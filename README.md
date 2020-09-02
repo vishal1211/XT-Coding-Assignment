@@ -7,3 +7,6 @@
 3. Run command => ng serve 
 4. Once project successfully run go on browser and open link "http://localhost:4200"
 
+# Light House Report 
+
+![alt text](https://github.com/vishal1211/XT-Coding-Assignment/blob/master/LightHouse%20Reports/desktop.png)
