@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SpaceX-Program"
+    }
+  },
+  "defaultProject": "SpaceX-Program",
+  "cli": {
+    "analytics": "f0f37c93-9701-4838-9c70-ea02e3bd85f9"
+  }
 }
