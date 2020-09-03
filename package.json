@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod",
     "postinstall": "ng build --aot -prod"
   },
   "engines": {
@@ -26,6 +27,7 @@
     "@angular/platform-browser": "~10.0.6",
     "@angular/platform-browser-dynamic": "~10.0.6",
     "@angular/router": "~10.0.6",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "path": "^0.12.7",
     "rxjs": "~6.5.5",
