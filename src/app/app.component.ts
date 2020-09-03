@@ -14,13 +14,13 @@ export class AppComponent {
   selectedYear = '';
   selectedLaunch = null;
   selectedLanding = null;
-  dataList:any;
+  dataList=[];
   constructor(private http: HttpClient) {
     this.getSpaceXData();
   }
 
   getSpaceXData() {
-    this.dataList=undefined;
+    // this.dataList=undefined;
     this.http.get(`https://api.spaceXdata.com/v3/launches?limit=100&launch_success=${this.selectedLaunch || ''}&land_success=${this.selectedLanding || ''}&launch_year=${this.selectedYear}`).subscribe((res: any) => {
       this.dataList = res;
 
