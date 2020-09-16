@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-lg-6" *ngIf="jsonData">
+
+      <ng-container *ngFor="let list of jsonData | keys;let index=index;">
+
+        <p *ngIf="checkDataType(jsonData[list])!=='object';else objectFound">{{getLabel(list) | titlecase}} :
+          {{jsonData[list]}}
+        </p>
+        <!-- If data type is non-primitive -->
+        <ng-template #objectFound>
+          <p>
+            {{getLabel(list) | titlecase}}:
+          </p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <ng-container *ngFor="let keyHeaderList of jsonData[list]">
+                  <th *ngFor="let keyList of keyHeaderList|keys">{{getLabel(keyList) | titlecase}}</th>
+                </ng-container>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <ng-container *ngFor="let keyHeaderList of jsonData[list]">
+                  <ng-container *ngFor="let keyList of keyHeaderList | keys">
+                    <td *ngIf="checkDataType(keyHeaderList[keyList])!='object'">
+                      {{keyHeaderList[keyList]}}
+                    </td>
+                    <!-- <ng-template > -->
+                      <td class="pointer" *ngIf="checkDataType(keyHeaderList[keyList])=='object'"
+                        (click)="nestedArray={index:index,title:getLabel(keyList) ,nestedArray:keyHeaderList[keyList]}">
+                        View More
+                      </td>
+                    <!-- </ng-template> -->
+                  </ng-container>
+                </ng-container>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <!-- Nested table list -->
+
+          <ng-container *ngIf="nestedArray && nestedArray.index==index">
+            <p class="bolder">{{nestedArray.title | titlecase}}:</p>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <ng-container *ngFor="let keyHeaderList of nestedArray.nestedArray">
+                    <th *ngFor="let keyList of keyHeaderList|keys">{{getLabel(keyList) | titlecase}}</th>
+                  </ng-container>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <ng-container *ngFor="let keyHeaderList of nestedArray.nestedArray">
+                    <td *ngFor="let keyList of keyHeaderList | keys">
+                      {{keyHeaderList[keyList]}}
+                    </td>
+                  </ng-container>
+                </tr>
+
+              </tbody>
+            </table>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+
+    </div>
+  </div>
+</div>

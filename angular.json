@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SpaceX-Program": {
+    "ria-assignment": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/SpaceX-Program",
+            "outputPath": "dist/ria-assignment",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "SpaceX-Program:build"
+            "browserTarget": "ria-assignment:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "SpaceX-Program:build:production"
+              "browserTarget": "ria-assignment:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SpaceX-Program:build"
+            "browserTarget": "ria-assignment:build"
           }
         },
         "test": {
@@ -114,19 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "SpaceX-Program:serve"
+            "devServerTarget": "ria-assignment:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "SpaceX-Program:serve:production"
+              "devServerTarget": "ria-assignment:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "SpaceX-Program",
+  "defaultProject": "ria-assignment",
   "cli": {
-    "analytics": "f0f37c93-9701-4838-9c70-ea02e3bd85f9"
+    "analytics": false
   }
 }
